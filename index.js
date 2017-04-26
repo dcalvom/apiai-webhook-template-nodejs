@@ -20,7 +20,6 @@ restService.post('/tutoria', function(req, res) {
             var name;
             var error;
             if (req.body.result && req.body.result.parameters) {
-                console.log(req.body.result.parameters);
                 name = req.body.result.parameters.nombre ? req.body.result.parameters.nombre : "";
                 var introduccion = req.body.result.parameters.introduccion ? req.body.result.parameters.introduccion.concat(".\n") : "";
                 var gustos = req.body.result.parameters.gustos ? req.body.result.parameters.gustos.concat(".\n") : "";
@@ -29,7 +28,7 @@ restService.post('/tutoria', function(req, res) {
                 var modelo = req.body.result.parameters.modelo ? req.body.result.parameters.modelo.concat(".\n") : "";
                 var decisionComputacion = req.body.result.parameters.decisionComputacion ? req.body.result.parameters.decisionComputacion.concat(".\n") : "";
                 var cursoFavorito = req.body.result.parameters.cursoFavorito ? req.body.result.parameters.cursoFavorito.concat(".\n") : "";
-                userDescription = userDescription.concat(introduccion, gustos, caracter, otrosGustos, modelo, decisionComputacion, curso_favorito);
+                userDescription = userDescription.concat(introduccion, gustos, caracter, otrosGustos, modelo, decisionComputacion, cursoFavorito);
                 if (userDescription.split(' ').length > 100) {
                     personality.getProfile(userDescription, name, function (err, personality) {
                         if(err){
