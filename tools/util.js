@@ -1,7 +1,7 @@
 'use strict';
 
-var flatten  = require('./flatten'),
-  similarity = require('./similarity');
+var flatten  = require('./flatten.js'),
+  similarity = require('./similarity.js');
 
 
 // Utility function to sort the profiles based on distance
