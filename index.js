@@ -19,6 +19,8 @@ restService.post('/tutoria', function(req, res) {
             var userDescription = "";
             var name;
             var error;
+            var lenguaje = 'espaniol';
+            console.log(JSON.stringify(req,null,2));
             if (req.body.result && req.body.result.parameters) {
                 name = req.body.result.parameters.nombre ? req.body.result.parameters.nombre : "";
                 var introduccion = req.body.result.parameters.introduccion ? req.body.result.parameters.introduccion.concat(".\n") : "";
@@ -29,6 +31,9 @@ restService.post('/tutoria', function(req, res) {
                 var decisionComputacion = req.body.result.parameters.decisionComputacion ? req.body.result.parameters.decisionComputacion.concat(".\n") : "";
                 var cursoFavorito = req.body.result.parameters.cursoFavorito ? req.body.result.parameters.cursoFavorito.concat(".\n") : "";
                 userDescription = userDescription.concat(introduccion, gustos, caracter, otrosGustos, modelo, decisionComputacion, cursoFavorito);
+                if(req.body.result.parameters.lenguaje){
+                    lenguaje = req.body.result.parameters.lenguaje;
+                }
                 if (userDescription.split(' ').length > 100) {
                     personality.getProfile(userDescription, name, function (err, personality) {
                         if(err){
@@ -41,8 +46,28 @@ restService.post('/tutoria', function(req, res) {
                             };
                             return callback(error, null);
                         }
-                        console.log(personality);
-                        var responseText = personality.user + ', el análisis de tu perfil está listo. Según lo que pude apreciar de vos, el énfasis que te recomiendo tomar es: ' + personality.similar_personalities[0].emphasis;
+                        var responseText;
+                        if(lenguaje === 'espaniol'){
+                            responseText = personality.user + ', el análisis de tu perfil está listo. Según lo que pude apreciar de vos, el énfasis que te recomiendo tomar es: ' + personality.similar_personalities[0].emphasis;
+                        }
+                        else{
+                            var emphasis = personality.similar_personalities[0].emphasis;
+                            switch (emphasis)
+                            {
+                                case "Ingeniería de Software":
+                                    emphasis = 'Software Engineering';
+                                break;
+                                case "Ciencias de la Computación":
+                                    emphasis = 'Computer Science';
+                                break;
+                                case "Ingeniería de Tecnologías de la Información":
+                                    emphasis = 'Information Technologies Engineering';
+                                break;
+                                default:
+                                    emphasis = '';
+                            }
+                            responseText = personality.user + ', your profile analysis is ready. According my professional lecture of yourself, the career path that I advice you is: ' + emphasis;
+                        }
                         var response = {
                             speech: responseText,
                             displayText: responseText,
