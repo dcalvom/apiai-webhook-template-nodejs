@@ -26,7 +26,6 @@ var getProfile = function getProfile(userDescription, name, cb){
         
     personality_insights.profile({text: userDescription, consumption_preferences: true}, function (err, profile) {
         if (err){
-            debug('Error personality_insights profile: %o', err);
             return cb(err, null);
         }
         else{
