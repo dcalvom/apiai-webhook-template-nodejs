@@ -40,8 +40,8 @@ restService.post('/tutoria', function(req, res) {
                             console.log(err);
                             var error = {
                                 err: err,
-                                speech: 'Ha ocurrido un error procesando tu perfil. Te pido disculpas',
-                                displayText: 'Ha ocurrido un error procesando tu perfil. Te pido disculpas',
+                                speech: lenguaje === 'espaniol' ? 'Ha ocurrido un error procesando tu perfil. Te pido disculpas' : 'An error ocurred during you profile processing. I am sorry',
+                                displayText: lenguaje === 'espaniol' ? 'Ha ocurrido un error procesando tu perfil. Te pido disculpas' : 'An error ocurred during you profile processing. I am sorry',
                                 source: 'tutor-carrera-webhook'
                             };
                             return callback(error, null);
@@ -78,8 +78,8 @@ restService.post('/tutoria', function(req, res) {
                 }
                 else{                  
                     var error = {
-                        speech: 'Lo siento pero no puedo generar un análisis con la cantidad de información que me diste',
-                        displayText: 'Lo siento pero no puedo generar un análisis con la cantidad de información que me diste',
+                        speech: lenguaje === 'espaniol' ? 'Lo siento pero no puedo generar un análisis con la cantidad de información que me diste' : 'I am sorry, but I can not generate an analysis with the amout of information you provided',
+                        displayText: lenguaje === 'espaniol' ? 'Lo siento pero no puedo generar un análisis con la cantidad de información que me diste' : 'I am sorry, but I can not generate an analysis with the amout of information you provided',
                         source: 'tutor-carrera-webhook'
                     };
                     return callback(error, null);
@@ -87,8 +87,8 @@ restService.post('/tutoria', function(req, res) {
             }
             else {               
                 var error = {
-                    speech: 'No te he podido escuchar bien y no te he entendido.',
-                    displayText: 'No te he podido escuchar bien y no te he entendido.',
+                    speech: lenguaje === 'espaniol' ? 'No te he podido escuchar bien y no te he entendido.' : 'I was not able to hear you and I did not get you.',
+                    displayText: lenguaje === 'espaniol' ? 'No te he podido escuchar bien y no te he entendido.' : 'I was not able to hear you and I did not get you.',
                     source: 'tutor-carrera-webhook'
                 };
                 return callback(error, null);
