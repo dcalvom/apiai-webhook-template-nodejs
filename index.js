@@ -20,7 +20,7 @@ restService.post('/tutoria', function(req, res) {
             var name;
             var error;
             if (req.body.result && req.body.result.parameters) {
-                name = req.body.result.parameters.nombre ? req.body.result.parameters.nombre.concat(".\n") : "";
+                name = req.body.result.parameters.nombre ? req.body.result.parameters.nombre : "";
                 var introduccion = req.body.result.parameters.introduccion ? req.body.result.parameters.introduccion.concat(".\n") : "";
                 var gustos = req.body.result.parameters.gustos ? req.body.result.parameters.gustos.concat(".\n") : "";
                 var caracter = req.body.result.parameters.caracter ? req.body.result.parameters.caracter.concat(".\n") : "";
@@ -41,7 +41,7 @@ restService.post('/tutoria', function(req, res) {
                             };
                             return callback(error, null);
                         }
-                        var responseText = personality.user + ', el análisis de tu perfil está listo. Según lo que pude apreciar de vos, el énfasis que mejor se ajusta a vos es: ' + personality.similar_personalities[0].emphasis;
+                        var responseText = personality.user + ', el análisis de tu perfil está listo. Según lo que pude apreciar de vos, el énfasis que te recomiendo tomar es: ' + personality.similar_personalities[0].emphasis;
                         var response = {
                             speech: responseText,
                             displayText: responseText,
