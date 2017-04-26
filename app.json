@@ -1,0 +1,6 @@
+{
+  "name": "tutor-carrera",
+  "description": "Webhook para la aplicacion del tutor de carrera",
+  "repository": "https://github.com/dcalvom/tutor-carrera-webhook.git",
+  "keywords": ["api.ai", "natural language"]
+}

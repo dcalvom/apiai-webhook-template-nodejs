@@ -1,24 +1,14 @@
 {
   "name": "tutor-carrera",
-  "description": "Webhook que controla la interaccion entre las acciones de API.ai y la logica del negocio",
-  "version": "0.0.1",
-  "private": true,
-  "license": "Apache Version 2.0",
-  "author": "Daniel Calvo",
-  "engines": {
-    "node": "~6.0"
-  },
+  "version": "1.0.0",
+  "description": "Webhook para la aplicacion del tutor de carrera",
+  "main": "index.js",
   "scripts": {
-    "lint": "semistandard --fix \"**/*.js\"",
-    "start": "functions deploy yourAction --trigger-http",
-    "deploy": "gcloud beta functions deploy yourAction --trigger-http --stage-bucket <storage_bucket_name>"
+    "start": "node index.js"
   },
+  "author": "Daniel Calvo",
   "dependencies": {
-    "actions-on-google": "^1.0.0",
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2"
-  },
-  "devDependencies": {
-    "semistandard": "^9.1.0"
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
   }
 }
