@@ -73,7 +73,9 @@ restService.post('/tutoria', function(req, res) {
         if(err){
             res.json(err);
         }
-        res.json(results[0]);
+        else{
+            res.json(results[0]);
+        }
     });
 });
 
