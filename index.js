@@ -41,6 +41,7 @@ restService.post('/tutoria', function(req, res) {
                             };
                             return callback(error, null);
                         }
+                        console.log(personality);
                         var responseText = personality.user + ', el análisis de tu perfil está listo. Según lo que pude apreciar de vos, el énfasis que te recomiendo tomar es: ' + personality.similar_personalities[0].emphasis;
                         var response = {
                             speech: responseText,
