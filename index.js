@@ -25,11 +25,11 @@ restService.post('/tutoria', function(req, res) {
                 var introduccion = req.body.result.parameters.introduccion ? req.body.result.parameters.introduccion.concat(".\n") : "";
                 var gustos = req.body.result.parameters.gustos ? req.body.result.parameters.gustos.concat(".\n") : "";
                 var caracter = req.body.result.parameters.caracter ? req.body.result.parameters.caracter.concat(".\n") : "";
-                var otros_gustos = req.body.result.parameters.otros_gustos ? req.body.result.parameters.otros_gustos.concat(".\n") : "";
+                var otrosGustos = req.body.result.parameters.otrosGustos ? req.body.result.parameters.otrosGustos.concat(".\n") : "";
                 var modelo = req.body.result.parameters.modelo ? req.body.result.parameters.modelo.concat(".\n") : "";
-                var decision_computacion = req.body.result.parameters.decision_computacion ? req.body.result.parameters.decision_computacion.concat(".\n") : "";
-                var curso_favorito = req.body.result.parameters.curso_favorito ? req.body.result.parameters.curso_favorito.concat(".\n") : "";
-                userDescription = userDescription.concat(introduccion, gustos, caracter, otros_gustos, modelo, decision_computacion, curso_favorito);
+                var decisionComputacion = req.body.result.parameters.decisionComputacion ? req.body.result.parameters.decisionComputacion.concat(".\n") : "";
+                var cursoFavorito = req.body.result.parameters.cursoFavorito ? req.body.result.parameters.cursoFavorito.concat(".\n") : "";
+                userDescription = userDescription.concat(introduccion, gustos, caracter, otrosGustos, modelo, decisionComputacion, curso_favorito);
                 if (userDescription.split(' ').length > 100) {
                     personality.getProfile(userDescription, name, function (err, personality) {
                         if(err){
