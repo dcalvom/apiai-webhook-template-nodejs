@@ -32,6 +32,7 @@ restService.post('/tutoria', function(req, res) {
                 if(userDescription.length > 100){
                     personality.getProfile(userDescription, name, function(err, personality){
                         if(err){
+                            console.log(err);
                             var error = {
                                 err: err,
                                 speech: 'Ha ocurrido un error procesando tu perfil. Te pido disculpas',
