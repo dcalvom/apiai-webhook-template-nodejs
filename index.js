@@ -20,7 +20,7 @@ restService.post('/tutoria', function(req, res) {
             var name;
             var error;
             var lenguaje = 'espaniol';
-            console.log(JSON.stringify(req,null,2));
+            console.log(req);
             if (req.body.result && req.body.result.parameters) {
                 name = req.body.result.parameters.nombre ? req.body.result.parameters.nombre : "";
                 var introduccion = req.body.result.parameters.introduccion ? req.body.result.parameters.introduccion.concat(".\n") : "";
