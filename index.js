@@ -29,8 +29,9 @@ restService.post('/tutoria', function(req, res) {
                 var decision_computacion = req.body.result.parameters.decision_computacion ? req.body.result.parameters.decision_computacion.concat(".\n") : "";
                 var curso_favorito = req.body.result.parameters.curso_favorito ? req.body.result.parameters.curso_favorito.concat(".\n") : "";
                 userDescription = userDescription.concat(introduccion, gustos, caracter, otros_gustos, modelo, decision_computacion, curso_favorito);
-                if(userDescription.length > 100){
-                    personality.getProfile(userDescription, name, function(err, personality){
+                console.log(userDescription.length);
+                if (userDescription.length > 100) {
+                    personality.getProfile(userDescription, name, function (err, personality) {
                         if(err){
                             console.log(err);
                             var error = {
