@@ -1,36 +1,39 @@
-// Copyright 2016, Google, Inc.
-// Licensed under the Apache License, Version 2.0 (the 'License');
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an 'AS IS' BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 'use strict';
 
-process.env.DEBUG = 'actions-on-google:*';
-const Assistant = require('actions-on-google').ApiAiAssistant;
+const express = require('express');
+const bodyParser = require('body-parser');
 
-// [START YourAction]
-exports.yourAction = (req, res) => {
-  const assistant = new Assistant({request: req, response: res});
-  console.log('Request headers: ' + JSON.stringify(req.headers));
-  console.log('Request body: ' + JSON.stringify(req.body));
+const restService = express();
 
-  // Fulfill action business logic
-  function responseHandler (assistant) {
-    // Complete your fulfillment logic and send a response
-    assistant.tell('Hello, World!');
-  }
+restService.use(bodyParser.urlencoded({
+    extended: true
+}));
 
-  const actionMap = new Map();
-  actionMap.set('<API.AI_action_name>', responseHandler);
+restService.use(bodyParser.json());
 
-  assistant.handleRequest(actionMap);
-};
-// [END YourAction]
+restService.post('/tutoria', function(req, res) {
+    var respuesta = ""
+    if(req.body.result && req.body.result.parameters){     
+      var nombre = req.body.result.parameters.echoText ? req.body.result.parameters.echoText : ""
+      var introduccion = req.body.result.parameters.echoText ? req.body.result.parameters.echoText : ""
+      var gustos = req.body.result.parameters.echoText ? req.body.result.parameters.echoText : ""
+      var caracter = req.body.result.parameters.echoText ? req.body.result.parameters.echoText : ""
+      var otros_gustos = req.body.result.parameters.echoText ? req.body.result.parameters.echoText : ""
+      var modelo = req.body.result.parameters.echoText ? req.body.result.parameters.echoText : ""
+      var decision_computacion = req.body.result.parameters.echoText ? req.body.result.parameters.echoText : ""
+      var curso_favorito = req.body.result.parameters.echoText ? req.body.result.parameters.echoText : ""
+      respuesta = respuesta.concat(introduccion,"\n",gustos,"\n",caracter,"\n",otros_gustos,"\n",modelo,"\n",decision_computacion,"\n",curso_favorito)
+    }
+    else{
+      respuesta = "No te he podido escuchar bien. Me podés contar de nuevo."
+    }
+    return res.json({
+        speech: respuesta,
+        displayText: respuesta,
+        source: 'tutor-carrera-webhook'
+    });
+});
+
+restService.listen((process.env.PORT || 8000), function() {
+    console.log("Server up and listening");
+});

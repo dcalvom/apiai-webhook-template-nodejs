@@ -1,10 +1,10 @@
 {
-  "name": "your-action-app",
-  "description": "This is your Action's webhook",
+  "name": "tutor-carrera",
+  "description": "Webhook que controla la interaccion entre las acciones de API.ai y la logica del negocio",
   "version": "0.0.1",
   "private": true,
   "license": "Apache Version 2.0",
-  "author": "Google Inc.",
+  "author": "Daniel Calvo",
   "engines": {
     "node": "~6.0"
   },
