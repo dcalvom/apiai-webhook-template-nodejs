@@ -10,7 +10,7 @@ function getDiffProfiles(profile, type) {
   if (distances[0].distance === 1.00)
     distances = distances.slice(1);
 
-  // Return 6 most similar and different profiles
+  // Return 3 most similar and different profiles
   return {
     similar: distances.slice(0, Math.min(3, distances.length)),
     different: distances.reverse().slice(0, Math.min(3, distances.length))

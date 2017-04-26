@@ -41,10 +41,10 @@ restService.post('/tutoria', function(req, res) {
                             };
                             return callback(error, null);
                         }
+                        var responseText = personality.user + ', el análisis de tu perfil está listo. Según lo que pude apreciar de vos, el énfasis que mejor se ajusta a vos es: ' + personality.similar_personalities[0].emphasis;
                         var response = {
-                            speech: 'Tu perfil está listo',
-                            displayText: 'Tu perfil está listo',
-                            personality: personality,
+                            speech: responseText,
+                            displayText: responseText,
                             source: 'tutor-carrera-webhook'
                         };
                         return callback(null, response);
