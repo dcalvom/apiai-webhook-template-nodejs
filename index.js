@@ -25,7 +25,7 @@ restService.post('/tutoria', function(req, res) {
       respuesta = respuesta.concat(introduccion,gustos,caracter,otros_gustos,modelo,decision_computacion,curso_favorito)
     }
     else{
-      respuesta = "No te he podido escuchar bien. Me podés contar de nuevo."
+      respuesta = "No te he podido escuchar bien y no te he entendido."
     }
     return res.json({
         speech: respuesta,
