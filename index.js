@@ -40,8 +40,8 @@ restService.post('/tutoria', function(req, res) {
                             console.log(err);
                             var error = {
                                 err: err,
-                                speech: lenguaje === 'espaniol' ? 'Ha ocurrido un error procesando tu perfil. Te pido disculpas' : 'An error ocurred during you profile processing. I am sorry',
-                                displayText: lenguaje === 'espaniol' ? 'Ha ocurrido un error procesando tu perfil. Te pido disculpas' : 'An error ocurred during you profile processing. I am sorry',
+                                speech: lenguaje === 'espaniol' ? 'Ha ocurrido un error procesando tu perfil. Te pido disculpas' : 'An error ocurred during the processing of your profile. I am sorry',
+                                displayText: lenguaje === 'espaniol' ? 'Ha ocurrido un error procesando tu perfil. Te pido disculpas' : 'An error ocurred during the processing of your profile. I am sorry',
                                 source: 'tutor-carrera-webhook'
                             };
                             return callback(error, null);
@@ -78,8 +78,8 @@ restService.post('/tutoria', function(req, res) {
                 }
                 else{                  
                     var error = {
-                        speech: lenguaje === 'espaniol' ? 'Lo siento pero no puedo generar un análisis con la cantidad de información que me diste' : 'I am sorry, but I can not generate an analysis with the amout of information you provided',
-                        displayText: lenguaje === 'espaniol' ? 'Lo siento pero no puedo generar un análisis con la cantidad de información que me diste' : 'I am sorry, but I can not generate an analysis with the amout of information you provided',
+                        speech: lenguaje === 'espaniol' ? 'Lo siento pero no puedo generar un análisis con la cantidad de información que me diste' : 'I am sorry, but I can not generate an analysis with the amount of information you provided',
+                        displayText: lenguaje === 'espaniol' ? 'Lo siento pero no puedo generar un análisis con la cantidad de información que me diste' : 'I am sorry, but I can not generate an analysis with the amount of information you provided',
                         source: 'tutor-carrera-webhook'
                     };
                     return callback(error, null);
