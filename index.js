@@ -25,12 +25,21 @@ restService.post('/tutoria', function(req, res) {
                 name = req.body.result.parameters.nombre ? req.body.result.parameters.nombre : "";
                 var introduccion = req.body.result.parameters.introduccion ? req.body.result.parameters.introduccion.concat(".\n") : "";
                 var gustos = req.body.result.parameters.gustos ? req.body.result.parameters.gustos.concat(".\n") : "";
-                var caracter = req.body.result.parameters.caracter ? req.body.result.parameters.caracter.concat(".\n") : "";
-                var otrosGustos = req.body.result.parameters.otrosGustos ? req.body.result.parameters.otrosGustos.concat(".\n") : "";
-                var modelo = req.body.result.parameters.modelo ? req.body.result.parameters.modelo.concat(".\n") : "";
-                var decisionComputacion = req.body.result.parameters.decisionComputacion ? req.body.result.parameters.decisionComputacion.concat(".\n") : "";
-                var cursoFavorito = req.body.result.parameters.cursoFavorito ? req.body.result.parameters.cursoFavorito.concat(".\n") : "";
-                userDescription = userDescription.concat(introduccion, gustos, caracter, otrosGustos, modelo, decisionComputacion, cursoFavorito);
+                var dia = req.body.result.parameters.dia ? req.body.result.parameters.dia.concat(".\n") : "";
+                var escenario1 = req.body.result.parameters.escenario1 ? req.body.result.parameters.escenario1.concat(".\n") : "";
+                var escenario2 = req.body.result.parameters.escenario2 ? req.body.result.parameters.escenario2.concat(".\n") : "";
+                var escenario3 = req.body.result.parameters.escenario3 ? req.body.result.parameters.escenario3.concat(".\n") : "";
+                var escenario4 = req.body.result.parameters.escenario4 ? req.body.result.parameters.escenario4.concat(".\n") : "";
+                var escenario5 = req.body.result.parameters.escenario5 ? req.body.result.parameters.escenario5.concat(".\n") : "";
+                var decision = req.body.result.parameters.decision ? req.body.result.parameters.decision.concat(".\n") : "";
+                var cursoGusto = req.body.result.parameters.cursoGusto ? req.body.result.parameters.cursoGusto.concat(".\n") : "";
+                var cursoNoGusto = req.body.result.parameters.cursoNoGusto ? req.body.result.parameters.cursoNoGusto.concat(".\n") : "";
+                var esperaAprender = req.body.result.parameters.esperaAprender ? req.body.result.parameters.esperaAprender.concat(".\n") : "";
+                var trabajoIdeal = req.body.result.parameters.trabajoIdeal ? req.body.result.parameters.trabajoIdeal.concat(".\n") : "";
+                var tareasTrabajo = req.body.result.parameters.tareasTrabajo ? req.body.result.parameters.tareasTrabajo.concat(".\n") : "";
+                var jefeSalario = req.body.result.parameters.jefeSalario ? req.body.result.parameters.jefeSalario.concat(".\n") : "";
+                var primerSalario = req.body.result.parameters.primerSalario ? req.body.result.parameters.primerSalario.concat(".\n") : "";
+                userDescription = userDescription.concat(introduccion, gustos, dia, escenario1, escenario2, escenario3, escenario4, escenario5, decision, cursoGusto, cursoNoGusto, esperaAprender, trabajoIdeal, tareasTrabajo, jefeSalario, primerSalario);
                 if(req.body.result.parameters.lenguaje){
                     lenguaje = req.body.result.parameters.lenguaje;
                 }
