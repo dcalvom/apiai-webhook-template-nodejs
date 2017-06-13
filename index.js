@@ -57,7 +57,7 @@ restService.post('/tutoria', function(req, res) {
                         }
                         var responseText;
                         if(lenguaje === 'espaniol'){
-                            responseText = personality.user + ', el análisis de tu perfil está listo. Según lo que pude apreciar de vos, el énfasis que te recomiendo tomar es: ' + personality.similar_personalities[0].emphasis;
+                            responseText = personality.user + ', el análisis de tu perfil está listo. Según lo que pude apreciar de vos, el énfasis que te recomiendo tomar es: ' + personality.similar_personalities[0].emphasis + '. El resumen de tu personalidad es el siguiente: ' + personality.resumen + '. Visita https://goo.gl/WL5fOj para más información.';
                         }
                         else{
                             var emphasis = personality.similar_personalities[0].emphasis;
@@ -75,7 +75,7 @@ restService.post('/tutoria', function(req, res) {
                                 default:
                                     emphasis = '';
                             }
-                            responseText = personality.user + ', your profile analysis is ready. According my professional lecture of yourself, the career path that I advice you is: ' + emphasis;
+                            responseText = personality.user + ', your profile analysis is ready. According my professional lecture of yourself, the career path that I advice you is: ' + emphasis + '. This is your profile summary: ' + personality.summary + '. Visit dcalvo.com for more information.';
                         }
                         var response = {
                             speech: responseText,

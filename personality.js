@@ -1,7 +1,11 @@
 'use strict';
 var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3'),
     util = require('./tools/util.js'),
-    flatten = require('./tools/flatten.js');
+    flatten = require('./tools/flatten.js'),
+    PersonalityTextSummaries = require('personality-text-summary');
+
+var v3EnglishTextSummaries = new PersonalityTextSummaries({ locale: 'en', version: 'v3' });
+var v3SpanishTextSummaries = new PersonalityTextSummaries({ locale: 'es', version: 'v3' });
 
 function getDiffProfiles(profile, type) {
   var distances = util.calculateDistances(profile, type);
@@ -37,6 +41,8 @@ var getProfile = function getProfile(userDescription, name, cb){
             }
             var ret = {
                 user: name,
+                summary: v3EnglishTextSummaries.getSummary(softwareEngineeringProfile),
+                resumen: v3SpanishTextSummaries.getSummary(softwareEngineeringProfile),
                 // return the flattened user profiles for each type
                 user_profile: {
                     personality: flatten.traits(profile, 'personality'),
