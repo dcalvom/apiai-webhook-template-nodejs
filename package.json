@@ -11,6 +11,7 @@
     "async": "^2.3.0",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
+    "personality-text-summary": "^2.1.4",
     "watson-developer-cloud": "^2.26.0"
   }
 }
