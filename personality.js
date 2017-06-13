@@ -41,8 +41,8 @@ var getProfile = function getProfile(userDescription, name, cb){
             }
             var ret = {
                 user: name,
-                summary: v3EnglishTextSummaries.getSummary(softwareEngineeringProfile),
-                resumen: v3SpanishTextSummaries.getSummary(softwareEngineeringProfile),
+                summary: v3EnglishTextSummaries.getSummary(profile),
+                resumen: v3SpanishTextSummaries.getSummary(profile),
                 // return the flattened user profiles for each type
                 user_profile: {
                     personality: flatten.traits(profile, 'personality'),
